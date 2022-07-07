@@ -6,10 +6,10 @@
 
 **Используемые технологии:**
 
-*HTML5
-*CSS
-*JavaScript
-*React
-*Методология БЭМ
-*Адаптивная верстка - flex, grid
-*API
+* HTML5
+* CSS
+* JavaScript
+* React
+* Методология БЭМ
+* Адаптивная верстка - flex, grid
+* API
