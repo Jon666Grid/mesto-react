@@ -53,84 +53,87 @@ function App() {
         <PopupWithForm
           name='avatar'
           title='Обновить аватар'
-          children={
-            <label className="popup__label">
-              <input required type="url"
-                name="avatar"
-                placeholder="Ссылка на картинку"
-                id="input-avatar"
-                className="popup__input popup__input_type_img" />
-              <span className="popup__error"
-                id="input-avatar-error"></span>
-            </label>}
           buttonName={'Сохранить'}
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
-        />
+        >
+          <label className="popup__label">
+            <input required type="url"
+              name="avatar"
+              placeholder="Ссылка на картинку"
+              id="input-avatar"
+              className="popup__input popup__input_type_img" />
+            <span className="popup__error"
+              id="input-avatar-error"></span>
+          </label>
+        </PopupWithForm>
 
         <PopupWithForm
           name="edit"
           title="Редактировать профиль"
-          children={
-            <><label className="popup__label">
-              <input required type="text"
-                name="name"
-                minLength="2"
-                maxLength="40"
-                placeholder="Имя"
-                id="input-name"
-                className="popup__input popup__input_type_name" />
-              <span className="popup__error"
-                id="input-name-error"></span>
-            </label>
-              <label className="popup__label">
-                <input required type="text"
-                  name="about"
-                  minLength="2"
-                  maxLength="200"
-                  placeholder="О себе"
-                  id="input-profession"
-                  className="popup__input  popup__input_type_profession" />
-                <span className="popup__error"
-                  id="input-profession-error"></span>
-              </label></>}
           buttonName={'Сохранить'}
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
-        />
+        >
+          <label className="popup__label">
+            <input required type="text"
+              name="name"
+              minLength="2"
+              maxLength="40"
+              placeholder="Имя"
+              id="input-name"
+              className="popup__input popup__input_type_name" />
+            <span className="popup__error"
+              id="input-name-error"></span>
+          </label>
+          <label className="popup__label">
+            <input required type="text"
+              name="about"
+              minLength="2"
+              maxLength="200"
+              placeholder="О себе"
+              id="input-profession"
+              className="popup__input  popup__input_type_profession" />
+            <span className="popup__error"
+              id="input-profession-error"></span>
+          </label>
+        </PopupWithForm>
 
         <PopupWithForm
           name='new-card'
           title='Новое место'
-          children={
-            <><label className="popup__label">
-              <input required type="text"
-                name="name" minLength="2"
-                maxLength="30"
-                placeholder="Название"
-                id="input-area"
-                className="popup__input popup__input_type_area" />
-              <span className="popup__error"
-                id="input-area-error"></span>
-            </label>
-              <label className="popup__label">
-                <input required type="url"
-                  name="link"
-                  placeholder="Ссылка на картинку"
-                  id="input-link"
-                  className="popup__input popup__input_type_img" />
-                <span className="popup__error"
-                  id="input-link-error"></span>
-              </label></>}
           buttonName={'Создать'}
           isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups} />
+          onClose={closeAllPopups}
+        >
+          <label className="popup__label">
+            <input required type="text"
+              name="name" minLength="2"
+              maxLength="30"
+              placeholder="Название"
+              id="input-area"
+              className="popup__input popup__input_type_area" />
+            <span className="popup__error"
+              id="input-area-error"></span>
+          </label>
+          <label className="popup__label">
+            <input required type="url"
+              name="link"
+              placeholder="Ссылка на картинку"
+              id="input-link"
+              className="popup__input popup__input_type_img" />
+            <span className="popup__error"
+              id="input-link-error"></span>
+          </label>
+        </PopupWithForm>
+
 
         <PopupWithForm
           name='delete-card'
           title='Вы уверены?'
           buttonName={'Да'}
-          onClose={closeAllPopups} />
+          onClose={closeAllPopups}
+        />
 
         <ImagePopup
           card={selectedCard}
