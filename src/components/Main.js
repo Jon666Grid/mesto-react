@@ -1,16 +1,15 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import api from '../utils/Api'
 import Card from './Card'
 
 export default function Main(props) {
 
-   const [userAvatar, setUserAvatar] = React.useState({});
-   const [userName, setUserName] = React.useState({});
-   const [userDescription, setUserDescription] = React.useState({});
-   const [userCards, setUserCards] = React.useState([]);
+   const [userAvatar, setUserAvatar] = useState('');
+   const [userName, setUserName] = useState('');
+   const [userDescription, setUserDescription] = useState('');
+   const [userCards, setUserCards] = useState([]);
 
-
-   React.useEffect(() => {
+   useEffect(() => {
       api.getUserInfo()
          .then(res => {
             setUserAvatar(res)
@@ -20,14 +19,13 @@ export default function Main(props) {
          .catch(err => console.log(err));
    }, [])
 
-   React.useEffect(() => {
+   useEffect(() => {
       api.getInitialCards()
          .then(res => {
             setUserCards(res)
          })
          .catch(err => console.log(err));
    }, [])
-
 
    return (
       <main className="content">
@@ -55,7 +53,7 @@ export default function Main(props) {
                {userCards.map((item) => (
                   <Card
                      card={item}
-                     likes={item}
+                     key={item._id}
                      onCardClick={props.onCardClick}
                   />
                ))}
@@ -64,6 +62,5 @@ export default function Main(props) {
 
       </main>
    );
-
 }
 
