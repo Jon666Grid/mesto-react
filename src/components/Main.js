@@ -1,31 +1,10 @@
-import { useEffect, useState } from 'react'
-import api from '../utils/Api'
+import { useContext } from 'react'
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Card from './Card'
 
 export default function Main(props) {
 
-   const [userAvatar, setUserAvatar] = useState('');
-   const [userName, setUserName] = useState('');
-   const [userDescription, setUserDescription] = useState('');
-   const [userCards, setUserCards] = useState([]);
-
-   useEffect(() => {
-      api.getUserInfo()
-         .then(res => {
-            setUserAvatar(res)
-            setUserName(res)
-            setUserDescription(res)
-         })
-         .catch(err => console.log(err));
-   }, [])
-
-   useEffect(() => {
-      api.getInitialCards()
-         .then(res => {
-            setUserCards(res)
-         })
-         .catch(err => console.log(err));
-   }, [])
+   const currentUser = useContext(CurrentUserContext);
 
    return (
       <main className="content">
@@ -34,14 +13,14 @@ export default function Main(props) {
             <button className="profile__avatar-edit"
                type="button" title="Обновить аватар"
                onClick={props.onEditAvatar}>
-               <img className="profile__avatar" src={userAvatar.avatar} alt="Аватар" />
+               <img className="profile__avatar" src={currentUser.avatar} alt="Аватар" />
             </button>
             <div className="profile__info">
-               <h1 className="profile__info-name">{userName.name}</h1>
+               <h1 className="profile__info-name">{currentUser.name}</h1>
                <button className="profile__button"
                   type="button"
                   onClick={props.onEditProfile}></button>
-               <p className="profile__info-profession">{userDescription.about}</p>
+               <p className="profile__info-profession">{currentUser.about}</p>
             </div>
             <button className="profile__add-button"
                type="button"
@@ -50,11 +29,13 @@ export default function Main(props) {
 
          <section className="elements">
             <ul className="elements__list">
-               {userCards.map((item) => (
+               {props.сards.map((item) => (
                   <Card
                      card={item}
                      key={item._id}
                      onCardClick={props.onCardClick}
+                     onCardLike={props.onCardLike}
+                     onCardDelete={props.onCardDelete}
                   />
                ))}
             </ul>

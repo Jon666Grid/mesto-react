@@ -3,7 +3,6 @@ export default function PopupWithForm(props) {
    const openedClass = props.isOpen && 'popup_is_opened';
 
    return (
-
       <div className={`popup popup_type_${props.name} ${openedClass}`}>
          <form className={`popup__form form-${props.name}`}
             name="myForm"
