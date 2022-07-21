@@ -9,7 +9,6 @@ export default function AddPlacePopup(props) {
    const [name, setName] = useState({});
    const [link, setLink] = useState({});
 
-
    function handleNameChange(e) {
       setName(e.target.value);
    }
@@ -21,7 +20,7 @@ export default function AddPlacePopup(props) {
    useEffect(() => {
       setName('');
       setLink('');
-   }, [currentUser]);
+   }, [currentUser, props.isOpen]);
 
    function handleSubmit(e) {
       e.preventDefault();

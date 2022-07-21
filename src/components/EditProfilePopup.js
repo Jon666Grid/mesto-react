@@ -5,7 +5,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 export default function EditProfilePopup(props) {
 
    const currentUser = useContext(CurrentUserContext);
-   const [name, setName] = useState({});
+   const [name, setName] = useState('');
    const [description, setDescription] = useState({});
 
    function handleNameChange(e) {
@@ -19,7 +19,7 @@ export default function EditProfilePopup(props) {
    useEffect(() => {
       setName(currentUser.name);
       setDescription(currentUser.about);
-   }, [currentUser]);
+   }, [currentUser, props.isOpen]);
 
    function handleSubmit(e) {
       e.preventDefault();
@@ -46,7 +46,7 @@ export default function EditProfilePopup(props) {
                placeholder="Имя"
                id="input-name"
                className="popup__input popup__input_type_name"
-               value={name}
+               value={ name || ''}
                onChange={handleNameChange} />
             <span className="popup__error"
                id="input-name-error"></span>
@@ -59,7 +59,7 @@ export default function EditProfilePopup(props) {
                placeholder="О себе"
                id="input-profession"
                className="popup__input  popup__input_type_profession"
-               value={description}
+               value={ description || ''}
                onChange={handleDescription} />
             <span className="popup__error"
                id="input-profession-error"></span>

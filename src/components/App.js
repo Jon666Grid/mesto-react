@@ -15,7 +15,8 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-  const [isCardDeletePopupOpen, setIsisCardDeletePopupOpen] = useState(false);
+  const [isCardDeletePopupOpen, setIsCardDeletePopupOpen] = useState(false);
+  const [cardtoDelete, setCardtoDelete] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
@@ -49,7 +50,7 @@ function App() {
       setCards((item) => item.filter((c) => c._id !== card._id && c));
       closeAllPopups();
     }).catch(err => console.log(err));
-  }//подскажите пожайлуста,не могу понять долгое время,при удалении : card = undefined
+  }
 
   function handleUpdateUser(data) {
     api.changeInfo(data).then((newUser) => {
@@ -88,15 +89,16 @@ function App() {
     setSelectedCard(card)
   }
 
-  function handleCardDelete() {
-    setIsisCardDeletePopupOpen(true)
+  function handleCardDelete(card) {
+    setCardtoDelete(card);
+    setIsCardDeletePopupOpen(true)
   }
 
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setIsisCardDeletePopupOpen(false)
+    setIsCardDeletePopupOpen(false);
     setSelectedCard({});
   }
 
@@ -138,6 +140,7 @@ function App() {
 
           <PopupWithConfirmation
             isOpen={isCardDeletePopupOpen}
+            card={cardtoDelete}
             onClose={closeAllPopups}
             onDeleteCard={handleCardDeleteComf}
           />

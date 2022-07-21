@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import PopupWithForm from "./PopupWithForm";
 
 export default function EditAvatarPopup(props) {
@@ -10,6 +10,10 @@ export default function EditAvatarPopup(props) {
          avatar: ref.current.value,
       });
    }
+
+   useEffect(() => {
+      ref.current.value = '';
+   }, [props.isOpen]);
 
    return (
       <PopupWithForm
