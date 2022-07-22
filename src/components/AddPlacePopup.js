@@ -6,8 +6,8 @@ export default function AddPlacePopup(props) {
 
    const currentUser = useContext(CurrentUserContext);
 
-   const [name, setName] = useState({});
-   const [link, setLink] = useState({});
+   const [name, setName] = useState('');
+   const [link, setLink] = useState('');
 
    function handleNameChange(e) {
       setName(e.target.value);

@@ -6,7 +6,7 @@ export default function EditProfilePopup(props) {
 
    const currentUser = useContext(CurrentUserContext);
    const [name, setName] = useState('');
-   const [description, setDescription] = useState({});
+   const [description, setDescription] = useState('');
 
    function handleNameChange(e) {
       setName(e.target.value);
