@@ -15,7 +15,8 @@
 * HTML5
 * CSS
 * JavaScript
+* Адаптивная верстка - flex, grid
 * React
 * Методология БЭМ
-* Адаптивная верстка - flex, grid
 * API
+* Webpack
