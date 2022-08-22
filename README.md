@@ -26,5 +26,5 @@
 ### Установка и запуск
 
 #### ![](https://img.shields.io/badge/-git%20clone-red) - скачать
-#### ![npm i](https://img.shields.io/badge/-npm%20i-yellow) - установить
-#### ![npm start](https://img.shields.io/badge/-npm%20start-green) - запустить
+#### ![](https://img.shields.io/badge/-npm%20i-yellow) - установить
+#### ![](https://img.shields.io/badge/-npm%20start-green) - запустить
