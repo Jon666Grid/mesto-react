@@ -22,3 +22,9 @@
 * Методология БЭМ
 * API
 * Webpack
+
+**Установка и запуск**
+
+* ![git clone](https://img.shields.io/badge/-git%20clone-red) - скачать
+* ![npm i](https://img.shields.io/badge/-npm%20i-yellow) - установить
+* ![npm start](https://img.shields.io/badge/-npm%20start-green) - запустить
